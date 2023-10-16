@@ -1,0 +1,35 @@
+spring:
+  redis:
+    host: dev-c88-internal.hyu.tw
+    port: 6379
+    password: 4c55365c-009b-477b-ae47-07f15947c164
+    database: 0
+  rabbitmq:
+    host: c88-rabbitmq.c88
+    port: 5672
+    username: default_user_HsMJ5kUM_Xl0xkwKC9x
+    password: mhXn1tDjBk7WIbzW8IGbf8vABeWWGoDM
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#hystrix
+feign:
+  circuitbreaker:
+    enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    persist-authorization: true
+#  packages-to-scan: com.c88 # 配置扫描的包
+  cache:
+    disabled: false
+  pre-loading-enabled: true
+  show-login-endpoint: true

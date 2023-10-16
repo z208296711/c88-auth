@@ -1,0 +1,33 @@
+spring:
+  redis:
+    host: c88-redis
+    port: 6379
+    password: cc6c1ad6-0fb8-420f-8c05-00afa195b17e
+    database: 0
+  rabbitmq:
+    host: c88-rabbitmq.c88
+    port: 5672
+    username: default_user_waTxIGEPnMjEqg2Q12f
+    password: mNfAlXCjddAfUTNWDQ8R9BtjNs2TX8gT
+  cloud:
+    kubernetes:
+      client: c88
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+#hystrix
+feign:
+  circuitbreaker:
+    enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    persist-authorization: true
+  cache:
+    disabled: false
+  pre-loading-enabled: true

@@ -1,0 +1,55 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /auth
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  application:
+    name: auth
+  cache:
+    # 缓存类型 redis、none(不使用缓存)
+    type: redis
+    # 缓存时间(单位：ms)
+    redis:
+      time-to-live: 3600000
+      # 缓存null值，防止缓存穿透
+      cache-null-values: true
+      # 允许使用缓存前缀，
+      use-key-prefix: true
+      # 缓存前缀，没有设置使用注解的缓存名称(value)作为前缀，和注解的key用双冒号::拼接组成完整缓存key
+      key-prefix: 'auth:'
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  server:
+    port: 18081
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+recaptcha:
+  file: /app/resources/recaptcha/recaptcha-backend
+  url: https://www.recaptcha.net/recaptcha/api/siteverify
+  secret: 6LcmfMEfAAAAACA_ys2UZhA5tj0FdDtoV58L_8qD
+feign:
+  compression:
+    request:
+      min-request-size: 4096
+geolite2ip:
+  path: https://storage.googleapis.com/dev-comebet/geo/GeoLite2-City.mmdb

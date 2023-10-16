@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/youlai?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1qaz@WSX
+  redis:
+    host: dev-c88-internal.hyu.tw
+    port: 6379
+    password: 4c55365c-009b-477b-ae47-07f15947c164
+    database: 0
+  rabbitmq:
+    host: c88-rabbitmq.c88
+    port: 5672
+    username: default_user_-sfMfhOP_-GyXw-2jFe
+    password: XoieAxsqH1G2aJP8vr7lW6G4HOD-QHSl
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+    com:
+      c88:
+        admin:
+          api:
+            OAuthClientFeignClient: DEBUG
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#hystrix
+feign:
+  circuitbreaker:
+    enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    persist-authorization: true
+#  packages-to-scan: com.c88 # 配置扫描的包
+  cache:
+    disabled: false
+  pre-loading-enabled: true
+  show-login-endpoint: true
